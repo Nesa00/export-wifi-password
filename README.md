@@ -1,54 +1,43 @@
-# Wi-Fi password extractor
-   
-This Python script retrieves WiFi profiles and passwords stored on your system and allows you to export them to a file.
 
-⚠️ Important Note:
+# Wi-Fi Password Exporter
 
-This script retrieves passwords stored on your system. Use it responsibly and only on devices you have permission to access.
-This script is currently a work in progress (WIP). Some functionalities may not be implemented yet (e.g., exporting as CSV).
-Features:
+This script retrieves WiFi profiles and passwords stored on your Windows system and allows you to export them to a file or print them in the terminal.
 
-Retrieves WiFi profiles and passwords.
-Exports retrieved information to a file (TXT, JSON, or XML formats are currently supported).
-Provides options to show detailed information or a summary.
-
-
-## Requirements:
+## Requirements
 Python 3
 
-## Usage:
+## Usage
 
-Run the script using python WWPE.py [options].
-### Available options:
+Run the script using:
+
 ```
--h, --help: Show this help message and exit.
--g, --get: Retrieves WiFi profiles and passwords (required).
--e, --export: Exports retrieved information to a file (optional).
--p, --path: Specify the path for the export file (optional, defaults to "export.txt").
--d, --detail: Export detailed information (optional).
+python main.py [options]
 ```
 
-## Examples:
+### Options
 
-### This retrieves WiFi profiles and passwords and shows a summary.
-```
-python wifi_password_retriever.py -g
-```
+- `-h`, `--help`           Show this help message and exit
+- `-p`, `--path [FILE]`    Export to a file. If used without a value, defaults to `export.json`. If a value is provided, uses that as the export path. Supports `.json`, `.xml`.
+- `-t`, `--terminal`       Print output to terminal instead of exporting to a file
 
-### This retrieves WiFi profiles and passwords and exports them to "export.txt" (summary).
-```
-python wifi_password_retriever.py -g -e
-```
+## Examples
 
-### This retrieves WiFi profiles and passwords, exports them with detailed information to "export.json".
+Export to the default file (export.json):
 ```
-python wifi_password_retriever.py -g -e -d -p export.json
+python main.py -p
 ```
 
-#### Disclaimer:
+Export to a specific file:
+```
+python main.py -p wifi_data.xml
+```
 
-> This script is designed for educational purposes only. 
-> It demonstrates how to retrieve WiFi profiles and passwords stored on a system. 
-> It should not be used on devices you don't have permission to access, as this could be a privacy violation.
+Print output to the terminal:
+```
+python main.py -t
+```
 
-Use this script wisely and have some fun exploring!
+Export to a file and print to terminal:
+```
+python main.py -p wifi_data.json -t
+```
